@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects in javascript</title>
+    <style>
+        body{
+font-family: 'Roboto', sans-serif;
+color: #000;
+}
+#container{
+width:800px;
+margin:50px auto;
+padding: 20px;
+width:50%;
+}
+#container h2{
+text-align:center;
+color:#045;
+}
+#quoteContainer{
+width:100%;
+background: #fff;
+padding:10px;
+margin:30px auto;
+text-align: center;
+}
+#buttonContainer{
+width: 100%;
+text-align: center;
+}
+#quoteButton{
+width:200px;
+margin-top: 10px;
+border:2px solid #46b8da;
+color:#045;
+font-family: inherit;
+font-weight: bold;
+padding:5px;
+text-decoration: none;
+text-align: center;
+}
+
+#quoteButton:hover{
+cursor:pointer;
+background:#09c;
+color: #fff;
+}
+#quoteButton:active{
+cursor: pointer;
+}
+#quoteButton{
+display: inline-block;
+}
+#quoteGenius{
+font-style: italic;
+font-weight: 600;
+text-align: center;
+}
+/*MEDIA QUERIES*/
+@media screen and(max-width:760px){
+#quoteButton,#addNew{
+display: block;
+}
+}
+    </style>
+</head>
+<body>
+   
+<div id="container">
+<h2>Get Your Daily Quote</h2>
+<div id="quoteContainer">
+<p></p>
+<p id="quoteGenius"></p>
+</div><!--end quoteContainer-->
+<div id="buttonContainer">
+<input type = "button" id="quoteButton" onclick = "myfunction()" value = "Click Me">
+</div><!--end buttonContainer-->
+</div>
+
+<script>
+
+var quoteSource = [{
+quote: "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
+name: "Francis of Assisi"
+},
+
+{
+quote: "Believe you can and you're halfway there.",
+name: "Theodore Roosevelt"
+},
+{
+quote: "It does not matter how slowly you go as long as you do not stop.",
+name: "Confucius"
+},
+{
+quote: "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
+name: "Thomas A. Edison"
+},
+{
+quote: "The will to win, the desire to succeed, the urge to reach your full potential... these are the keys that will unlock the door to personal excellence.",
+name: "Confucius"
+}
+];
+
+const quoteButton = document.getElementById('quoteButton');
+function myfunction(){
+//getting a new random number to attach to a quote and setting a limit
+var sourceLength = quoteSource.length;
+var randomNumber = Math.floor(Math.random() * sourceLength);
+//set a new quote
+var newQuoteText = quoteSource[randomNumber].quote;
+var newQuoteGenius = quoteSource[randomNumber].name;
+var quoteContainer = document.getElementById('quoteContainer');
+quoteContainer.innerHTML = `<p>${newQuoteText}</p><p
+id="quoteGenius">-${newQuoteGenius}</p> `;
+};
+</script>
+
+
+
+    </script>
+</body>
+</html>
